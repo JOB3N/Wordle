@@ -90,9 +90,8 @@
     <Compile Include="Class\ColorWord.cs" />
     <Compile Include="Class\FruitWord.cs" />
     <Compile Include="Class\VerbWord.cs" />
-    <Compile Include="CloseEventArgs.cs" />
     <Compile Include="ISaveList.cs" />
-    <Compile Include="JsonEnemySaver.cs" />
+    <Compile Include="JsonWordSaver.cs" />
     <Compile Include="WordConverter.cs" />
     <Compile Include="WordList.cs" />
     <Page Include="AddWord.xaml">

@@ -25,7 +25,6 @@ namespace Wordle
     public partial class AddWord : Window
     {
         CWordList words = new CWordList();
-        public event EventHandler<CloseEventArgs> ClosingEvent;
         private MainWindow mainForm;
         public AddWord(MainWindow form)
         {

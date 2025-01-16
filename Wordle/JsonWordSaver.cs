@@ -10,11 +10,11 @@ using Wordle.Class;
 
 namespace Wordle
 {
-    public class JsonEnemySaver : ISaveList<List<Word>>
+    public class JsonWordSaver : ISaveList<List<Word>>
     {
         private readonly JsonSerializerOptions _options;
 
-        public JsonEnemySaver()
+        public JsonWordSaver()
         {
             _options = new JsonSerializerOptions
             {

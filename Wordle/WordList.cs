@@ -12,7 +12,7 @@ namespace Wordle
 {
     public class CWordList
     {
-        private readonly ISaveList<List<Word>> _serializer = new JsonEnemySaver();
+        private readonly ISaveList<List<Word>> _serializer = new JsonWordSaver();
         List<Word> words;
 
         public CWordList()
