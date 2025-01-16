@@ -37,7 +37,7 @@ namespace Wordle
 
             if (File.Exists("words.json"))
             {
-                string path = "C:\\Users\\prodo\\Desktop\\Уник\\Информатика\\Курсовая работа\\Wordle\\Wordle\\bin\\Debug\\words.json"; ;
+                string path = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\words.json"; ;
                 words.loadFromJson(path);
                 LoadRadioButtons(words);
             }
