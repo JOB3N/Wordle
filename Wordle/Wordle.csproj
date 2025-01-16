@@ -90,10 +90,10 @@
     <Compile Include="Class\ColorWord.cs" />
     <Compile Include="Class\FruitWord.cs" />
     <Compile Include="Class\VerbWord.cs" />
-    <Compile Include="ISaveList.cs" />
-    <Compile Include="JsonWordSaver.cs" />
-    <Compile Include="WordConverter.cs" />
-    <Compile Include="WordList.cs" />
+    <Compile Include="Save\ISaveList.cs" />
+    <Compile Include="Save\JsonWordSaver.cs" />
+    <Compile Include="Save\WordConverter.cs" />
+    <Compile Include="Class\WordList.cs" />
     <Page Include="AddWord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -6,7 +6,6 @@ namespace Wordle.Class
 {
     public class Statistics
     {
-        Statistics statistic;
         public int correctAnswers { get; set; }
         public int incorrectAnswers { get; set; }
         public Statistics()
@@ -14,7 +13,5 @@ namespace Wordle.Class
             correctAnswers = 0;
             incorrectAnswers = 0;
         }
-        
-        
     }
 }

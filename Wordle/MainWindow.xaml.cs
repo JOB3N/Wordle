@@ -64,7 +64,8 @@ namespace Wordle
 
         public void LoadRadioButtons(CWordList words)
         {
-            Statistic.Text = "Правильные ответы: " + statistic.correctAnswers.ToString() + "   Неправильные ответы: " + statistic.incorrectAnswers.ToString();
+            Statistic.Text = "Правильные ответы: " + statistic.correctAnswers.ToString() 
+                + "   Неправильные ответы: " + statistic.incorrectAnswers.ToString();
             List<Word> animal = new List<Word>();
             Random random = new Random();
             string cat = Category.Text;
@@ -78,7 +79,6 @@ namespace Wordle
             if (cat == "Цвета")
                 for (int i = 0; i < words.CountWordsByCategory(cat); i++) animal.Add(words.GetWordByIndexAndCategory(i, cat));
 
-
             correctAnswer = animal[random.Next(animal.Count())].translation;
             OrigWord.Text = words.getWordByTrans(correctAnswer).original;
             // Создаем список для вариантов ответов
@@ -86,28 +86,23 @@ namespace Wordle
             animal.Remove(words.getWordByTrans(correctAnswer));
 
             // Добавляем три случайных неправильных варианта
-
             while (options.Count < 4)
             {
                 Random rnd = new Random();
                 string randomWord = animal[rnd.Next(animal.Count())].translation;
-
                 if (!options.Contains(randomWord))
                 {
                     options.Add(randomWord);
                     animal.Remove(words.getWordByTrans(randomWord));
                 }
             }
-
             // Перемешиваем варианты ответов
             options = options.OrderBy(x => random.Next()).ToList();
-
             // Заполняем радиокнопки
             radioButton1.Content = options[0];
             radioButton2.Content = options[1];
             radioButton3.Content = options[2];
             radioButton4.Content = options[3];
-
         }
 
         private void buttonCheck_Click(object sender, EventArgs e)

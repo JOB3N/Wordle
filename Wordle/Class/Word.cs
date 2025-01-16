@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace Wordle.Class
 {
-    public abstract class Word
+    public class Word
     {
         public string category { get; set; }
         public string original { get; set; }
@@ -19,9 +19,7 @@ namespace Wordle.Class
         {
             original = orig;
             translation = trans;
-            this.category = categor;
+            category = categor;
         }
-
-
     }
 }
