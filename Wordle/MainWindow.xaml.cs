@@ -39,7 +39,7 @@ namespace Wordle
             {
                 string path = "C:\\Users\\prodo\\Desktop\\Уник\\Информатика\\Курсовая работа\\Wordle\\Wordle\\bin\\Debug\\words.json"; ;
                 words.loadFromJson(path);
-                LoadRadioButtons();
+                LoadRadioButtons(words);
             }
         }
         public Statistics LoadStatistics()
@@ -62,7 +62,7 @@ namespace Wordle
             File.WriteAllText("statistics.json", json);
         }
 
-        private void LoadRadioButtons()
+        public void LoadRadioButtons(CWordList words)
         {
             Statistic.Text = "Правильные ответы: " + statistic.correctAnswers.ToString() + "   Неправильные ответы: " + statistic.incorrectAnswers.ToString();
             List<Word> animal = new List<Word>();
@@ -116,13 +116,25 @@ namespace Wordle
             string selectedAnswer = "";
 
             if (radioButton1.IsChecked == true)
+            {
                 selectedAnswer = radioButton1.Content.ToString();
+                radioButton1.IsChecked = false;
+            }
             else if (radioButton2.IsChecked == true)
+            {
                 selectedAnswer = radioButton2.Content.ToString();
+                radioButton2.IsChecked = false;
+            }
             else if (radioButton3.IsChecked == true)
+            {
                 selectedAnswer = radioButton3.Content.ToString();
+                radioButton3.IsChecked = false;
+            }
             else if (radioButton4.IsChecked == true)
+            {
                 selectedAnswer = radioButton4.Content.ToString();
+                radioButton4.IsChecked = false;
+            }
 
             // Проверяем правильность ответа
             if (selectedAnswer == correctAnswer)
@@ -135,12 +147,14 @@ namespace Wordle
             }
             SaveStatistics();
             // Обновляем радиокнопки с новым правильным ответом
-            LoadRadioButtons();
+            LoadRadioButtons(words);
+            
         }
         private void AddWordButton(object sender, RoutedEventArgs e)
         {
-            AddWord add_word = new AddWord();
+            AddWord add_word = new AddWord(this);
             add_word.ShowDialog();
+                 
         }
     }
 }

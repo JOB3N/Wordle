@@ -26,8 +26,8 @@ namespace Wordle
     {
         CWordList words = new CWordList();
         public event EventHandler<CloseEventArgs> ClosingEvent;
-
-        public AddWord()
+        private MainWindow mainForm;
+        public AddWord(MainWindow form)
         {
             InitializeComponent();
             if (File.Exists("words.json"))
@@ -35,6 +35,7 @@ namespace Wordle
                 string path = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\words.json"; ;
                 words.loadFromJson(path);
             }
+            mainForm = form;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,7 +48,7 @@ namespace Wordle
             if (!string.IsNullOrWhiteSpace(original) && !string.IsNullOrWhiteSpace(translation))
             {
                 words.addWord(original, translation, category, typeIndex);
-                InfoText.Text = "Слово добавлено в список";
+                InfoText.Text = "Слово добавлено в список.";
             }
             else
             {
@@ -68,7 +69,9 @@ namespace Wordle
                 string filePath = dlg.FileName;
                 words.saveToJson(filePath);
             }
-            InfoText.Text = "Cписок cохранен";
+            InfoText.Text = "Cписок cохранен. Перезапустите программу.";
+            mainForm.LoadRadioButtons(words);
+            this.Close();
         }
     }
 }
